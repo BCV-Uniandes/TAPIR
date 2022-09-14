@@ -1,0 +1,106 @@
+label {
+  name: "Tiempo_muerto"
+  label_id: 0
+  label_type: NO_STEP
+}
+label {
+  name: "Id_Vena_Arteria_Iliaca"
+  label_id: 1
+  label_type: STEP_NAME
+}
+label {
+  name: "Diseccion_Ganglios_Iliacos"
+  label_id: 2
+  label_type: STEP_NAME
+}
+label {
+  name: "Diseccion_Ganglios_Obturadores"
+  label_id: 3
+  label_type: STEP_NAME
+}
+label {
+  name: "Empacar_Ganglios"
+  label_id: 4
+  label_type: STEP_NAME
+}
+label {
+  name: "Diseccion_Prevesical"
+  label_id: 5
+  label_type: STEP_NAME
+}
+label {
+  name: "Pasar_Aguja_Cvdp"
+  label_id: 6
+  label_type: STEP_NAME
+}
+label {
+  name: "Diseccion_Prostata"
+  label_id: 7
+  label_type: STEP_NAME
+}
+label {
+  name: "Diseccion_Seminal"
+  label_id: 8
+  label_type: STEP_NAME
+}
+label {
+  name: "Diseccion_Denon"
+  label_id: 9
+  label_type: STEP_NAME
+}
+label {
+  name: "Corte_Prostata"
+  label_id: 10
+  label_type: STEP_NAME
+}
+label {
+  name: "Sujetar_Prostata"
+  label_id: 11
+  label_type: STEP_NAME
+}
+label {
+  name: "Empacar_Prostata"
+  label_id: 12
+  label_type: STEP_NAME
+}
+label {
+  name: "Pasar_Aguja_Uretra"
+  label_id: 13
+  label_type: STEP_NAME
+}
+label {
+  name: "Pasar_Aguja_Cuello"
+  label_id: 14
+  label_type: STEP_NAME
+}
+label {
+  name: "Halar_sutura"
+  label_id: 15
+  label_type: STEP_NAME
+}
+label {
+  name: "Anudar"
+  label_id: 16
+  label_type: STEP_NAME
+}
+label {
+  name: "Succion"
+  label_id: 17
+  label_type: STEP_NAME
+}
+label {
+  name: "Corte"
+  label_id: 18
+  label_type: STEP_NAME
+}
+
+label {
+  name: "Corte_Vejiga"
+  label_id: 19
+  label_type: STEP_NAME
+}
+label {
+  name: "Clip_Pediculos"
+  label_id: 20
+  label_type: STEP_NAME
+}

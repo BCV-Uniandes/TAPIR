@@ -1,0 +1,55 @@
+label {
+  name: "Tiempo_muerto"
+  label_id: 0
+  label_type: NO_PHASE
+}
+label {
+  name: "LPAI"
+  label_id: 1
+  label_type: PHASE_NAME
+}
+label {
+  name: "LPAD"
+  label_id: 2
+  label_type: PHASE_NAME
+}
+label {
+  name: "Espacio_de_Retzius"
+  label_id: 3
+  label_type: PHASE_NAME
+}
+label {
+  name: "Complejo_venoso_dorsal"
+  label_id: 4
+  label_type: PHASE_NAME
+}
+label {
+  name: "Id_Cuello_Vesical"
+  label_id: 5
+  label_type: PHASE_NAME
+}
+label {
+  name: "Vesículas_Seminales"
+  label_id: 6
+  label_type: PHASE_NAME
+}
+label {
+  name: "Fascia_Denonvilliers"
+  label_id: 7
+  label_type: PHASE_NAME
+}
+label {
+  name: "Control_Pediculos"
+  label_id: 8
+  label_type: PHASE_NAME
+}
+label {
+  name: "Separacion_Prostata_Uretra"
+  label_id: 9
+  label_type: PHASE_NAME
+}
+label {
+  name: "Rec_Cuello_Vesical"
+  label_id: 10
+  label_type: PHASE_NAME
+}

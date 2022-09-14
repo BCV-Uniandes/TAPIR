@@ -1,0 +1,36 @@
+label {
+  name: "Bipolar Forceps"
+  label_id: 1
+  label_type: INSTRUMENT_NAME
+}
+label {
+  name: "Prograsp Forceps"
+  label_id: 2
+  label_type: INSTRUMENT_NAME
+}
+label {
+  name: "Large Needle Driver"
+  label_id: 3
+  label_type: INSTRUMENT_NAME
+}
+label {
+  name: "Monopolar Curved Scissors"
+  label_id: 4
+  label_type: INSTRUMENT_NAME
+}
+label {
+  name: "Suction Instrument"
+  label_id: 5
+  label_type: INSTRUMENT_NAME
+}
+label {
+  name: "Clip Applier"
+  label_id: 6
+  label_type: INSTRUMENT_NAME
+}
+label {
+  name: "Laparoscopic Grasper"
+  label_id: 7
+  label_type: INSTRUMENT_NAME
+}
+

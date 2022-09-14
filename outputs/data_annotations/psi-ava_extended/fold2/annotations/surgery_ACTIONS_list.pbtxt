@@ -1,0 +1,80 @@
+label {
+  name: "Cauterize"
+  label_id: 1
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Close"
+  label_id: 2
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Close Something"
+  label_id: 3
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Cut"
+  label_id: 4
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Grasp"
+  label_id: 5
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Hold"
+  label_id: 6
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Open"
+  label_id: 7
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Open Something"
+  label_id: 8
+  label_type: INSTRUMENT_POSE
+}
+label {
+  name: "Pull"
+  label_id: 9
+  label_type: INSTRUMENT_POSE
+}
+label {
+  name: "Push"
+  label_id: 10
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Release"
+  label_id: 11
+  label_type: INSTRUMENT_MOVEMENT
+}
+label {
+  name: "Staple"
+  label_id: 12
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Still"
+  label_id: 13
+  label_type: INSTRUMENT_MOVEMENT
+}
+label {
+  name: "Suction"
+  label_id: 14
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Travel"
+  label_id: 15
+  label_type: INSTRUMENT_INTERACTION
+}
+label {
+  name: "Wash"
+  label_id: 16
+  label_type: INSTRUMENT_INTERACTION
+}

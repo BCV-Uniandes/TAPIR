@@ -55,14 +55,14 @@ For training TAPIR in:
 $ bash run_examples/mvit_short_term.sh
 
 # the Phases or Steps recognition task
-$ bash run_examples/mvit_bELlong_term.sh
+$ bash run_examples/mvit_long_term.sh
 ```
 
 Evaluating the models:
 
 Download our trained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/)/TAPIR_trained_models.
 
-Add this path in the .sh file corresponding to the task you want to evaluate. Enable test by setting in the config **TEST.ENABLE True**
+Add this path in the run_examples/mvit_*.sh file corresponding to the task you want to evaluate. Enable test by setting in the config **TEST.ENABLE True**
 
 
 <!-- ## Citation

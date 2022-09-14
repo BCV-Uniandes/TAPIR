@@ -7,7 +7,7 @@ This repository provides instructions to download the PSI-AVA dataset and run th
 ## Paper
 
 Towards Holistic Surgical Scene Understanding <br/>
-[Natalia Valderrama](https://nfvalderrama.github.io)<sup>1</sup>, Paola Ruiz Puentes<sup>1*</sup>, Isabela Hernández<sup>1*</sup>, Nicolás Ayobi<sup>1</sup>, Mathilde Verlyck<sup>1</sup>, Jessica Santander<sup>2</sup>, Juan Caicedo<sup>2</sup>, Nicolás Fernández<sup>3,4</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
+[Natalia Valderrama](https://nfvalderrama.github.io)<sup>1</sup>, [Paola Ruiz Puentes](https://paolaruizp.github.io)<sup>1*</sup>, Isabela Hernández<sup>1*</sup>, Nicolás Ayobi<sup>1</sup>, Mathilde Verlyck<sup>1</sup>, Jessica Santander<sup>2</sup>, Juan Caicedo<sup>2</sup>, Nicolás Fernández<sup>3,4</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
 <sup>*</sup>Equal contribution.<br/>
 <sup>1 </sup> Center  for  Research  and  Formation  in  Artificial  Intelligence .([CINFONIA](https://cinfonia.uniandes.edu.co/)),  Universidad  de  los  Andes,  Bogotá 111711, Colombia. <br/>
 <sup>2 </sup> Fundación Santafé de Bogotá, Bogotá, Colombia<br/>

@@ -39,13 +39,13 @@ $ python setup.py build develop
 
 Download the "keyframes" folder in [PSI-AVA](http://157.253.243.19/PSI-AVA/) in the repository's folder ./outputs/PSIAVA/
 
-PSI-AVA/keyframes/* ===> ./outputs/PSIAVA/keyframes/
+ - PSI-AVA/keyframes/* ===> ./outputs/PSIAVA/keyframes/
 
 Download the instrument features computed by deformable DETR from the folder "Def_DETR_Box_ftrs" in [PSI-AVA](http://157.253.243.19/PSI-AVA/) as follows:
  
-PSI-AVA/def_DETR_box_ftrs/fold1/* ===> ./outputs/data_annotations/psi-ava/fold1/
+ - PSI-AVA/def_DETR_box_ftrs/fold1/* ===> ./outputs/data_annotations/psi-ava/fold1/
 
-PSI-AVA/def_DETR_box_ftrs/fold2/* ===> ./outputs/data_annotations/psi-ava/fold2/
+ - PSI-AVA/def_DETR_box_ftrs/fold2/* ===> ./outputs/data_annotations/psi-ava/fold2/
 
 
 For training TAPIR in:

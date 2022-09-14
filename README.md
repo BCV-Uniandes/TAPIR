@@ -20,6 +20,8 @@ Towards Holistic Surgical Scene Understanding <br/>
 
 In this [link](http://157.253.243.19/PSI-AVA/) you will find the original Radical Prostatectomy surgical videos and annotations that compose the Phases, Steps, Instruments and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions and the trained model weights on each task.
 
+You will find the PSIAVA's benchmark data partition and annotations in outputs/data_annotations.
+
 ## TAPIR
 
 ### Installation
@@ -34,6 +36,8 @@ $ cd TAPIR
 $ bash requirements.sh
 $ python setup.py build develop
 ```
+
+Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebookresearch/SlowFast)[1]. For more information, please refer to this work.
 
 ### Training
 
@@ -72,3 +76,7 @@ If you find our paper useful, please use the following BibTeX entry for citation
 ```
 
 ``` -->
+
+## References
+
+[1] H. Fan, Y. Li, B. Xiong, W.-Y. Lo, C. Feichtenhofer, ‘PySlowFast’, 2020. https://github.com/facebookresearch/slowfast.

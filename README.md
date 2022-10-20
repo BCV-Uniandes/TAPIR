@@ -6,7 +6,7 @@ This repository provides instructions to download the PSI-AVA dataset and run th
 
 ## Paper
 
-Towards Holistic Surgical Scene Understanding <br/>
+[Towards Holistic Surgical Scene Understanding](https://doi.org/10.1007/978-3-031-16449-1_42) <br/>
 [Natalia Valderrama](https://nfvalderrama.github.io)<sup>1</sup>, [Paola Ruiz Puentes](https://paolaruizp.github.io)<sup>1*</sup>, Isabela Hernández<sup>1*</sup>, Nicolás Ayobi<sup>1</sup>, Mathilde Verlyck<sup>1</sup>, Jessica Santander<sup>2</sup>, Juan Caicedo<sup>2</sup>, Nicolás Fernández<sup>3,4</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
 <sup>*</sup>Equal contribution.<br/>
 <sup>1 </sup> Center  for  Research  and  Formation  in  Artificial  Intelligence .([CINFONIA](https://cinfonia.uniandes.edu.co/)),  Universidad  de  los  Andes,  Bogotá 111711, Colombia. <br/>
@@ -14,7 +14,9 @@ Towards Holistic Surgical Scene Understanding <br/>
 <sup>3 </sup> Seattle Children’s Hospital, Seattle, USA <br/>
 <sup>4 </sup> University of Washington, Seattle, USA <br/>
 
-**Soon available at [springer](http://link.springer.com.) "Towards Holistic Surgical Scene Understanding", Volume 13437 of the Lecture Notes in Computer Science series.**
+**Available at [springer](https://doi.org/10.1007/978-3-031-16449-1_42) "Towards Holistic Surgical Scene Understanding", Volume 13437 of the Lecture Notes in Computer Science series.**
+
+Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and in our [youtube](https://youtu.be/G4ctkKgRkaY) channel.
 
 ## PSI-AVA
 

@@ -14,7 +14,7 @@ This repository provides instructions to download the PSI-AVA dataset and run th
 <sup>3 </sup> Seattle Children’s Hospital, Seattle, USA <br/>
 <sup>4 </sup> University of Washington, Seattle, USA <br/>
 
-**Available at [ArXiv](https://arxiv.org/abs/2212.04582)**
+**Available at [ArXiv](https://arxiv.org/abs/2212.04582)**<br/>
 **Available at [springer](https://doi.org/10.1007/978-3-031-16449-1_42) "Towards Holistic Surgical Scene Understanding", Volume 13437 of the Lecture Notes in Computer Science series.**
 
 Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and in our [youtube](https://youtu.be/G4ctkKgRkaY) channel.

@@ -95,7 +95,7 @@ def construct_optimizer(model, cfg):
             betas=(0.9, 0.999),
             weight_decay=cfg.SOLVER.WEIGHT_DECAY,
         )
-    elif cfg.SOLVER.OPTIMIZING_METHOD == "adamw" and cfg.MODELS.MODEL_NAME == "VideoSwinTransformer":
+    elif cfg.SOLVER.OPTIMIZING_METHOD == "adamw" and cfg.MODEL.MODEL_NAME == "VideoSwinTransformer":
         return torch.optim.AdamW(
                 lr=cfg.SOLVER.BASE_LR,
                 betas=(0.9, 0.999),

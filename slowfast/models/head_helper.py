@@ -484,30 +484,18 @@ class TransformerRoIHead(nn.Module):
                 "function.".format(act_func)
             )
 
-    def forward(self, inputs, bboxes, features=None):
+    def forward(self, inputs, bboxes, features=None, boxes_mask=None):
+        # breakpoint()
         x = inputs.mean(1)
-        x_boxes = torch.zeros(len(bboxes), x.shape[1], device = inputs.device, requires_grad=True)
-        for i in range(len(inputs)):
-            x_boxes[bboxes[:,0] == i].copy_(x[i])
-            x[i].detach()
+        x_boxes = x.unsqueeze(1).repeat(1,self.cfg.DATA.MAX_BBOXES,1)[boxes_mask]
         
         if features is not None:
-            features = features[:,1:]
+            features = features[boxes_mask]
             if self.cfg.FASTER.DETR:
                 features = self.mlp(features)
             x = torch.cat([x_boxes, features], dim=1)
-
-        elif features is None and self.cfg.FASTER.ENABLE:
-            features = torch.zeros(x_boxes.shape[0], self.dim_add, device = inputs.device, requires_grad=True)
-            x = torch.cat([x_boxes, features], dim=1)
-
-        elif features is None and not self.cfg.FASTER.ENABLE:
-            x = self.mlp(x)
-            x_boxes = torch.zeros(len(bboxes), x.shape[1], device = inputs.device, requires_grad=True)
-            for i in range(len(inputs)):
-                x_boxes[bboxes[:,0] == i].copy_(x[i])
-                x[i].detach()
-            x = x_boxes
+        else:
+            raise NotImplementedError('There are no features')
         
         x = self.projection(x)
         if self.training and self.act_func == "sigmoid" or not self.training:

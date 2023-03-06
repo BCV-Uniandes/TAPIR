@@ -92,7 +92,8 @@ def train_epoch(
 
         with torch.cuda.amp.autocast(enabled=cfg.TRAIN.MIXED_PRECISION):
             faster_ftrs = meta["faster_features"] if cfg.FASTER.ENABLE else None
-            preds = model(inputs, meta["boxes"], faster_ftrs)
+            boxes_mask = meta["boxes_mask"] if cfg.FASTER.ENABLE else None
+            preds = model(inputs, meta["boxes"], faster_ftrs, boxes_mask)
             keep_box = meta["keep_box"]
             # Explicitly declare reduction to mean and compute the loss for each task.
             loss = []
@@ -195,7 +196,8 @@ def eval_epoch(val_loader, model, val_meter, cur_epoch, cfg):
                     
         val_meter.data_toc()
         faster_ftrs = meta["faster_features"] if cfg.FASTER.ENABLE else None
-        preds = model(inputs, meta["boxes"], faster_ftrs)
+        boxes_mask = meta["boxes_mask"] if cfg.FASTER.ENABLE else None
+        preds = model(inputs, meta["boxes"], faster_ftrs, boxes_mask)
         keep_box = meta["keep_box"]
         ori_boxes = meta["ori_boxes"]
         metadata = meta["metadata"]
@@ -349,8 +351,8 @@ def train(cfg):
     # Build the video model and print model statistics.
     model = build_model(cfg)
     # TODO Si no corre, quitarlo
-    if du.is_master_proc() and cfg.LOG_MODEL_INFO:
-        misc.log_model_info(model, cfg, use_train_input=True)
+    # if du.is_master_proc() and cfg.LOG_MODEL_INFO:
+    #     misc.log_model_info(model, cfg, use_train_input=True)
 
     # Construct the optimizer.
     optimizer = optim.construct_optimizer(model, cfg)

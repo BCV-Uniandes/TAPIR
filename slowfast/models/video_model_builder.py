@@ -685,7 +685,7 @@ class MViT(nn.Module):
         else:
             return {}
 
-    def forward(self, x, bboxes=None, features=None):
+    def forward(self, x, bboxes=None, features=None, boxes_mask=None):
         
         out = {k:[] for k in self.tasks}
         x = x[0]
@@ -738,7 +738,7 @@ class MViT(nn.Module):
                 else:
                     t = x[:, :, :]
 
-                out_features = extra_head(t, bboxes, features)
+                out_features = extra_head(t, bboxes, features, boxes_mask)
                     
                 out[task].append(out_features)
             else:

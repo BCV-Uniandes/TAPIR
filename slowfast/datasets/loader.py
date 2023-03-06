@@ -58,7 +58,7 @@ def detection_collate(batch):
     collated_extra_data = {}
     for key in extra_data[0].keys():
         data = [d[key] for d in extra_data]
-        if key == "boxes" or key == "ori_boxes" or key=="faster_features":
+        if key == "ori_boxes":
             # Append idx info to the bboxes before concatenating them.
             # TODO Verificar que funciona y quitarlo después.
             try:
@@ -90,8 +90,10 @@ def detection_collate(batch):
             collated_extra_data[key] = torch.tensor(
                 np.array(list(itertools.chain(*data)))
             )
+        elif key == "boxes_mask":
+            collated_extra_data[key] = default_collate(data).bool()
         else:
-            collated_extra_data[key] = default_collate(data)
+            collated_extra_data[key] = default_collate(data).float()
     
     collated_labels = {}
     for key in labels[0].keys():

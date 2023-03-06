@@ -73,7 +73,7 @@ def load_image_lists(cfg, is_train):
                     video_idx_to_name.append(video_name)
 
                 data_key = video_name_to_idx[video_name]
-                image_paths[data_key].append(os.path.join(cfg.AVA.FRAME_DIR, row[3]))
+                image_paths[data_key].append(row[3])
 
     image_paths = [image_paths[i] for i in range(len(image_paths))]
     logger.info("Finished loading image paths from: %s" % ", ".join(list_filenames))

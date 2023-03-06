@@ -550,6 +550,9 @@ _C.DATA.ENSEMBLE_METHOD = "sum"
 # If True, revert the default input channel (RBG <-> BGR).
 _C.DATA.REVERSE_INPUT_CHANNEL = False
 
+# Max possible boxes
+_C.DATA.MAX_BBOXES = 10
+
 
 # ---------------------------------------------------------------------------- #
 # Optimizer options

@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# TAPIR outputs
+outputs/PSIAVA
+outputs/log
+run_examples/scripts
+outputs/data_annotations/psi-ava/fold1/train
+outputs/data_annotations/psi-ava/fold1/val
+outputs/data_annotations/psi-ava/fold2/train/
+outputs/data_annotations/psi-ava/fold2/val

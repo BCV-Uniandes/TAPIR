@@ -60,7 +60,6 @@ def detection_collate(batch):
         data = [d[key] for d in extra_data]
         if key == "ori_boxes":
             # Append idx info to the bboxes before concatenating them.
-            # TODO Verificar que funciona y quitarlo después.
             try:
                 bboxes = [
                     np.concatenate(

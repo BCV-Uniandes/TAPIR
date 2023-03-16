@@ -553,6 +553,9 @@ _C.DATA.REVERSE_INPUT_CHANNEL = False
 # Max possible boxes
 _C.DATA.MAX_BBOXES = 10
 
+# Just use a center crop
+_C.DATA.JUST_CENTER = True
+
 
 # ---------------------------------------------------------------------------- #
 # Optimizer options

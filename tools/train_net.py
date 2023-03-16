@@ -4,6 +4,7 @@
 """Train a video classification model."""
 
 from genericpath import exists
+import random
 import numpy as np
 import shutil
 import os
@@ -22,8 +23,6 @@ import slowfast.utils.misc as misc
 from slowfast.datasets import loader
 from slowfast.models import build_model
 from slowfast.utils.meters import EpochTimer, SurgeryMeter
-from slowfast.utils.multigrid import MultigridSchedule
-from torch.nn.modules.distance import PairwiseDistance
 
 logger = logging.get_logger(__name__)
 
@@ -331,19 +330,13 @@ def train(cfg):
     # Set up environment.
     du.init_distributed_training(cfg)
     # Set random seed from configs.
+    random.seed(cfg.RNG_SEED)
     np.random.seed(cfg.RNG_SEED)
     torch.manual_seed(cfg.RNG_SEED)
 
     # Setup logging format.
     logging.setup_logging(cfg.OUTPUT_DIR)
 
-    # Init multigrid.
-    multigrid = None
-    if cfg.MULTIGRID.LONG_CYCLE or cfg.MULTIGRID.SHORT_CYCLE:
-        multigrid = MultigridSchedule()
-        cfg = multigrid.init_multigrid(cfg)
-        if cfg.MULTIGRID.LONG_CYCLE:
-            cfg, _ = multigrid.update_long_cycle(cfg, cur_epoch=0)
     # Print config.
     logger.info("Train with config:")
     logger.info(pprint.pformat(cfg))
@@ -351,8 +344,8 @@ def train(cfg):
     # Build the video model and print model statistics.
     model = build_model(cfg)
     # TODO Si no corre, quitarlo
-    # if du.is_master_proc() and cfg.LOG_MODEL_INFO:
-    #     misc.log_model_info(model, cfg, use_train_input=True)
+    if du.is_master_proc() and cfg.LOG_MODEL_INFO:
+        misc.log_model_info(model, cfg, use_train_input=True)
 
     # Construct the optimizer.
     optimizer = optim.construct_optimizer(model, cfg)
@@ -394,30 +387,7 @@ def train(cfg):
     epoch_timer = EpochTimer()
     
     for cur_epoch in range(start_epoch, cfg.SOLVER.MAX_EPOCH):
-        if cfg.MULTIGRID.LONG_CYCLE:
-            cfg, changed = multigrid.update_long_cycle(cfg, cur_epoch)
-            if changed:
-                (
-                    model,
-                    optimizer,
-                    train_loader,
-                    val_loader,
-                    precise_bn_loader,
-                    train_meter,
-                    val_meter,
-                ) = build_trainer(cfg)
 
-                # Load checkpoint.
-                if cu.has_checkpoint(cfg.OUTPUT_DIR):
-                    last_checkpoint = cu.get_last_checkpoint(cfg.OUTPUT_DIR)
-                    assert "{:05d}.pyth".format(cur_epoch) in last_checkpoint
-                else:
-                    last_checkpoint = cfg.TRAIN.CHECKPOINT_FILE_PATH
-                logger.info("Load from {}".format(last_checkpoint))
-                cu.load_checkpoint(
-                    last_checkpoint, model, cfg.NUM_GPUS > 1, optimizer
-                )
-            
         # Shuffle the dataset.
         loader.shuffle_dataset(train_loader, cur_epoch)
 
@@ -449,10 +419,10 @@ def train(cfg):
         is_checkp_epoch = cu.is_checkpoint_epoch(
             cfg,
             cur_epoch,
-            None if multigrid is None else multigrid.schedule,
+            None
         )
         is_eval_epoch = misc.is_eval_epoch(
-            cfg, cur_epoch, None if multigrid is None else multigrid.schedule
+            cfg, cur_epoch, None
         )
 
         # Compute precise BN stats.

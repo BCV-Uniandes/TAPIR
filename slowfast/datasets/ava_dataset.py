@@ -143,7 +143,7 @@ class Ava(torch.utils.data.Dataset):
         boxes = [boxes]
 
         # The image now is in HWC, BGR format.
-        if self._split == "train":  # "train"
+        if self._split == "train" and not self.cfg.DATA.JUST_CENTER:  # "train"
             imgs, boxes = cv2_transform.random_short_side_scale_jitter_list(
                 imgs,
                 min_size=self._jitter_min_scale,
@@ -159,7 +159,7 @@ class Ava(torch.utils.data.Dataset):
                 imgs, boxes = cv2_transform.horizontal_flip_list(
                     0.5, imgs, order="HWC", boxes=boxes
                 )
-        elif self._split == "val":
+        elif self._split == "val" or self.cfg.DATA.JUST_CENTER:
             # Short side to test_scale. Non-local and STRG uses 256.
             imgs = [cv2_transform.scale(self._crop_size, img) for img in imgs]
             boxes = [
@@ -170,19 +170,6 @@ class Ava(torch.utils.data.Dataset):
             imgs, boxes = cv2_transform.spatial_shift_crop_list(
                 self._crop_size, imgs, 1, boxes=boxes
             )
-
-            if self._test_force_flip:
-                imgs, boxes = cv2_transform.horizontal_flip_list(
-                    1, imgs, order="HWC", boxes=boxes
-                )
-        elif self._split == "test":
-            # Short side to test_scale. Non-local and STRG uses 256.
-            imgs = [cv2_transform.scale(self._crop_size, img) for img in imgs]
-            boxes = [
-                cv2_transform.scale_boxes(
-                    self._crop_size, boxes[0], height, width
-                )
-            ]
 
             if self._test_force_flip:
                 imgs, boxes = cv2_transform.horizontal_flip_list(
@@ -371,6 +358,7 @@ class Ava(torch.utils.data.Dataset):
             extra_data (dict): a dict containing extra data fields, like "boxes",
                 "ori_boxes" and "metadata".
         """
+        # Get the path of the middle frame 
         video_idx, sec_idx, sec, center_idx = self._keyframe_indices[idx]
         video_name = self._video_idx_to_name[video_idx]
         folder_to_images = "/".join(self._image_paths[video_idx][0].split('/')[:-2])
@@ -497,6 +485,7 @@ class Ava(torch.utils.data.Dataset):
                 imgs, boxes=boxes
             )
         
+        # Padding and masking for a consistent dimensions in batch
         max_boxes = self.cfg.DATA.MAX_BBOXES
         bbox_mask = np.zeros(max_boxes,dtype=bool)
         bbox_mask[:len(boxes)] = True

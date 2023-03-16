@@ -274,52 +274,6 @@ def calculate_and_update_precise_bn(loader, model, num_iters=200, use_gpu=True):
     update_bn_stats(model, _gen_loader(), num_iters)
 
 
-def build_trainer(cfg):
-    """
-    Build training model and its associated tools, including optimizer,
-    dataloaders and meters.
-    Args:
-        cfg (CfgNode): configs. Details can be found in
-            slowfast/config/defaults.py
-    Returns:
-        model (nn.Module): training model.
-        optimizer (Optimizer): optimizer.
-        train_loader (DataLoader): training data loader.
-        val_loader (DataLoader): validatoin data loader.
-        precise_bn_loader (DataLoader): training data loader for computing
-            precise BN.
-        train_meter (TrainMeter): tool for measuring training stats.
-        val_meter (ValMeter): tool for measuring validation stats.
-    """
-    # Build the video model and print model statistics.
-    model = build_model(cfg)
-    if du.is_master_proc() and cfg.LOG_MODEL_INFO:
-        misc.log_model_info(model, cfg, use_train_input=True)
-
-    # Construct the optimizer.
-    optimizer = optim.construct_optimizer(model, cfg)
-
-    # Create the video train and val loaders.
-    train_loader = loader.construct_loader(cfg, "train")
-    val_loader = loader.construct_loader(cfg, "val")
-    precise_bn_loader = loader.construct_loader(
-        cfg, "train", is_precise_bn=True
-    )
-    # Create meters.
-    train_meter = SurgeryMeter(len(train_loader), cfg, mode="train")
-    val_meter = SurgeryMeter(len(val_loader), cfg, mode="val")
-
-    return (
-        model,
-        optimizer,
-        train_loader,
-        val_loader,
-        precise_bn_loader,
-        train_meter,
-        val_meter,
-    )
-
-
 def train(cfg):
     """
     Train a video model for many epochs on train set and evaluate it on val set.
@@ -343,7 +297,9 @@ def train(cfg):
 
     # Build the video model and print model statistics.
     model = build_model(cfg)
-    # TODO Si no corre, quitarlo
+
+    # Calculating model info (param & flops). 
+    # Remove if it is not working
     if du.is_master_proc() and cfg.LOG_MODEL_INFO:
         misc.log_model_info(model, cfg, use_train_input=True)
 
@@ -450,9 +406,10 @@ def train(cfg):
                 scaler if cfg.TRAIN.MIXED_PRECISION else None,
             )
         
-        del_fil = os.path.join(cfg.OUTPUT_DIR,'checkpoints', 'checkpoint_epoch_{0:05d}.pyth'.format(cur_epoch-1))
-        if os.path.exists(del_fil):
-            os.remove(del_fil)
+        if not cfg.MODEL.KEEP_ALL_CHEKPOINTS:
+            del_fil = os.path.join(cfg.OUTPUT_DIR,'checkpoints', 'checkpoint_epoch_{0:05d}.pyth'.format(cur_epoch-1))
+            if os.path.exists(del_fil):
+                os.remove(del_fil)
             
         # Evaluate the model on validation set.
         if is_eval_epoch:

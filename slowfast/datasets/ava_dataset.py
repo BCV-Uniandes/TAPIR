@@ -261,7 +261,7 @@ class Ava(torch.utils.data.Dataset):
         boxes[:, [1, 3]] *= height
         boxes = transform.clip_boxes_to_image(boxes, height, width)
 
-        if self._split == "train":
+        if self._split == "train" and not self.cfg.DATA.JUST_CENTER:
             # Train split
             imgs, boxes = transform.random_short_side_scale_jitter(
                 imgs,
@@ -275,7 +275,7 @@ class Ava(torch.utils.data.Dataset):
 
             # Random flip.
             imgs, boxes = transform.horizontal_flip(0.5, imgs, boxes=boxes)
-        elif self._split == "val":
+        elif self._split == "val" or self.cfg.DATA.JUST_CENTER:
             # Val split
             # Resize short side to crop_size. Non-local and STRG uses 256.
             imgs, boxes = transform.random_short_side_scale_jitter(
@@ -288,18 +288,6 @@ class Ava(torch.utils.data.Dataset):
             # Apply center crop for val split
             imgs, boxes = transform.uniform_crop(
                 imgs, size=self._crop_size, spatial_idx=1, boxes=boxes
-            )
-
-            if self._test_force_flip:
-                imgs, boxes = transform.horizontal_flip(1, imgs, boxes=boxes)
-        elif self._split == "test":
-            # Test split
-            # Resize short side to crop_size. Non-local and STRG uses 256.
-            imgs, boxes = transform.random_short_side_scale_jitter(
-                imgs,
-                min_size=self._crop_size,
-                max_size=self._crop_size,
-                boxes=boxes,
             )
 
             if self._test_force_flip:

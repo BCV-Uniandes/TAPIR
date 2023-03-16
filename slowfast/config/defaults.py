@@ -296,6 +296,9 @@ _C.MODEL.HEAD_ACT = "softmax"
 # Activation checkpointing enabled or not to save GPU memory.
 _C.MODEL.ACT_CHECKPOINT = False
 
+# Activation checkpointing enabled or not to save GPU memory.
+_C.MODEL.KEEP_ALL_CHECKPOINT = False
+
 
 # -----------------------------------------------------------------------------
 # MViT options

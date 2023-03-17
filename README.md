@@ -101,7 +101,7 @@ pip install -r requirements.txt
 
 Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebookresearch/SlowFast)[1]. For more information, please refer to this work.
 
-### Running the code
+### Preparing data
 
 Download the "keyframes" folder in [PSI-AVA](http://157.253.243.19/PSI-AVA/) in the repository's folder ./outputs/PSIAVA/
 
@@ -144,6 +144,8 @@ Download the instrument features computed by deformable DETR from the folder "De
                        ...
   ```
 
+## Running the code
+
 For training TAPIR in:
 
 ```
@@ -154,13 +156,14 @@ $ bash run_examples/mvit_short_term.sh
 $ bash run_examples/mvit_long_term.sh
 ```
 
-Evaluating the models:
+## Evaluating models
 
 Download our trained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/)/TAPIR_trained_models.
 
 Add this path in the run_examples/mvit_*.sh file corresponding to the task you want to evaluate. Enable test by setting in the config **TEST.ENABLE True**
 
 #### Citing TAPIR
+
 If you use PSI-AVA or TAPIR in your research please include the following BibTex citation in your papers.
 ```BibTeX
 @misc{valderrama2020tapir,

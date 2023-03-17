@@ -144,7 +144,7 @@ Download the instrument features computed by deformable DETR from the folder "De
                        ...
   ```
 
-## Running the code
+### Running the code
 
 For training TAPIR in:
 
@@ -156,7 +156,7 @@ $ bash run_examples/mvit_short_term.sh
 $ bash run_examples/mvit_long_term.sh
 ```
 
-## Evaluating models
+### Evaluating models
 
 | Task | mAP | config | run file | model |
 | ----- | ----- | ----- | ----- | ----- |
@@ -170,7 +170,7 @@ Download our trained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/)/TAPIR_t
 
 Add this path in the run_examples/mvit_*.sh file corresponding to the task you want to evaluate. Enable test by setting in the config **TEST.ENABLE True**
 
-#### Citing TAPIR
+## Citing TAPIR
 
 If you use PSI-AVA or TAPIR in your research please include the following BibTex citation in your papers.
 ```BibTeX

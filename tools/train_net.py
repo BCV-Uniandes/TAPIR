@@ -406,7 +406,7 @@ def train(cfg):
                 scaler if cfg.TRAIN.MIXED_PRECISION else None,
             )
         
-        if not cfg.MODEL.KEEP_ALL_CHEKPOINTS:
+        if not cfg.MODEL.KEEP_ALL_CHECKPOINTS:
             del_fil = os.path.join(cfg.OUTPUT_DIR,'checkpoints', 'checkpoint_epoch_{0:05d}.pyth'.format(cur_epoch-1))
             if os.path.exists(del_fil):
                 os.remove(del_fil)

@@ -171,7 +171,7 @@ class Ava(torch.utils.data.Dataset):
                 self._crop_size, imgs, 1, boxes=boxes
             )
 
-            if self._test_force_flip:
+            if not self.cfg.DATA.JUST_CENTER and self._test_force_flip:
                 imgs, boxes = cv2_transform.horizontal_flip_list(
                     1, imgs, order="HWC", boxes=boxes
                 )
@@ -290,7 +290,7 @@ class Ava(torch.utils.data.Dataset):
                 imgs, size=self._crop_size, spatial_idx=1, boxes=boxes
             )
 
-            if self._test_force_flip:
+            if not self.cfg.DATA.JUST_CENTER and self._test_force_flip:
                 imgs, boxes = transform.horizontal_flip(1, imgs, boxes=boxes)
         else:
             raise NotImplementedError(

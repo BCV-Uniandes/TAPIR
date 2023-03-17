@@ -37,18 +37,18 @@ PSI-AVA:
 |        |      |---Fold2
 |        |            |--checkpoint_best_actions.pyth
 |        |---INSTRUMENTS
-|               ...
+|        |      ...
 |        |---PHASES
-|               ...
+|        |      ...
 |        |---STEPS
 |               ...
 |
 |--def_DETR_box_ftrs
 |        |---fold1
-|              |---train
-|              |      |--box_features.pth
-|              |---val
-|              |      |--box_features.pth
+|        |     |---train
+|        |     |      |--box_features.pth
+|        |     |---val
+|        |            |--box_features.pth
 |        |---fold2
 |              ...
 |
@@ -60,6 +60,7 @@ PSI-AVA:
 |         |        |       |--0000011.jpg
 |         |        |       ...
 |         |        |---CASE002
+|         |        |       ...
 |         |        ...
 |         |--RobotSegSantaFe_v3_dense.json 
 |         |--RobotSegSantaFe_v3_dense_fold1.json
@@ -72,6 +73,8 @@ PSI-AVA:
           |        |--00002.jpg
           |        ...
           |---CASE002
+          |        ...
+          ...
 ```
 
 You will find the PSIAVA's benchmark data partition and annotations in outputs/data_annotations.
@@ -86,21 +89,21 @@ You will find the PSIAVA's benchmark data partition and annotations in outputs/d
 Please follow these steps to run TAPIR:
 
 ```sh
-conda create --name tapir python=3.8 -y
-conda activate tapir
-conda install pytorch==1.9.0 torchvision==0.10.0 cudatoolkit=11.1 -c pytorch -c nvidia
+$ conda create --name tapir python=3.8 -y
+$ conda activate tapir
+$ conda install pytorch==1.9.0 torchvision==0.10.0 cudatoolkit=11.1 -c pytorch -c nvidia
 
-conda install av -c conda-forge
-pip install -U iopath
-pip install -U opencv-python
-pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
-pip install 'git+https://github.com/facebookresearch/fvcore'
-pip install 'git+https://github.com/facebookresearch/fairscale'
-python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+$ conda install av -c conda-forge
+$ pip install -U iopath
+$ pip install -U opencv-python
+$ pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
+$ pip install 'git+https://github.com/facebookresearch/fvcore'
+$ pip install 'git+https://github.com/facebookresearch/fairscale'
+$ python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 
-git clone https://github.com/BCV-Uniandes/TAPIR
-cd TAPIR
-pip install -r requirements.txt
+$ git clone https://github.com/BCV-Uniandes/TAPIR
+$ cd TAPIR
+$ pip install -r requirements.txt
 ```
 
 Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebookresearch/SlowFast)[1]. For more information, please refer to this work.
@@ -118,6 +121,7 @@ Download the instrument features computed by deformable DETR from the folder "De
  ```PSI-AVA/def_DETR_box_ftrs/fold2/* ===> ./outputs/data_annotations/psi-ava/fold2/*```
  
  In the end, the ```outputs``` directory must have the following structure
+ 
   ```tree
   outputs
   |---data_annotations
@@ -162,13 +166,14 @@ $ bash run_examples/mvit_long_term.sh
 
 ### Evaluating models
 
+<center>
 | Task | mAP | config | run file | model |
 | ----- | ----- | ----- | ----- | ----- |
-| Phases | 56.55 +- 2.31 | [PHASES](configs/MVIT_PHASES.yaml) | [long_term](run_examples/mvit_long_term.sh) | [phases](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/PHASES/) |
-| Steps | 45.56 +- 0.004 | [STEPS](configs/MVIT_STEPS.yaml) | [long_term](run_examples/mvit_long_term.sh) | [steps](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/STEPS/) |
+| Phases | 56.55 $\pm$ 2.31 | [PHASES](configs/MVIT_PHASES.yaml) | [long_term](run_examples/mvit_long_term.sh) | [phases](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/PHASES/) |
+| Steps | 45.56 $\pm$ 0.004 | [STEPS](configs/MVIT_STEPS.yaml) | [long_term](run_examples/mvit_long_term.sh) | [steps](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/STEPS/) |
 | Instruments |  | [TOOLS](configs/MVIT_TOOLS.yaml) | [short_term](run_examples/mvit_short_term.sh) | [tools](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/INSTRUMENTS/) |
 | Actions |  | [ACTIONS](configs/MVIT_ACTIONS.yaml) | [short_term](run_examples/mvit_short_term.sh) | [actions](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/ACTIONS/) |
-
+</center>
 
 Download our trained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/)/TAPIR_trained_models.
 

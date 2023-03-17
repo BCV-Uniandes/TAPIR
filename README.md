@@ -22,7 +22,7 @@ Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu
 ## PSI-AVA
 
 <div align="center">
-  <img src="images/dataset.jpg" width="80%" height="80%"/>
+  <img src="images/dataset.jpg" width="70%" height="70%"/>
 </div><br/>
 
 In this [link](http://157.253.243.19/PSI-AVA/) you will find the original Radical Prostatectomy surgical videos and annotations that compose the Phases, Steps, Instruments and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions and the trained model weights on each task. The data in the link has the following organization
@@ -33,9 +33,9 @@ PSI-AVA:
 |--TAPIR_trained_models
 |        |---ACTIONS
 |        |      |---Fold1
-|        |      |     |---checkpoint_best_actions.pyth
+|        |      |     |--checkpoint_best_actions.pyth
 |        |      |---Fold2
-|        |            |---checkpoint_best_actions.pyth
+|        |            |--checkpoint_best_actions.pyth
 |        |---INSTRUMENTS
 |               ...
 |        |---PHASES
@@ -45,9 +45,9 @@ PSI-AVA:
 |
 |--def_DETR_box_ftrs
 |        |---fold1
-|              |--train
+|              |---train
 |              |      |--box_features.pth
-|              |--val
+|              |---val
 |              |      |--box_features.pth
 |        |---fold2
 |              ...
@@ -55,15 +55,15 @@ PSI-AVA:
 |--images_8_frames_per_second
 |         |---keyframes
 |         |        |---CASE001
-|         |        |       |---000000.jpg
-|         |        |       |---000006.jpg
-|         |        |       |---0000011.jpg
+|         |        |       |--000000.jpg
+|         |        |       |--000006.jpg
+|         |        |       |--0000011.jpg
 |         |        |       ...
 |         |        |---CASE002
 |         |        ...
-|         |---RobotSegSantaFe_v3_dense.json 
-|         |---RobotSegSantaFe_v3_dense_fold1.json
-|         |---RobotSegSantaFe_v3_dense_fold2.json 
+|         |--RobotSegSantaFe_v3_dense.json 
+|         |--RobotSegSantaFe_v3_dense_fold1.json
+|         |--RobotSegSantaFe_v3_dense_fold2.json 
 |
 |--keyframes
           |---CASE001
@@ -78,7 +78,9 @@ You will find the PSIAVA's benchmark data partition and annotations in outputs/d
 
 ## TAPIR
 
-![alt text](https://github.com/BCV-Uniandes/TAPIR/images/TAPIR.jpg)
+<div align="center">
+  <img src="images/TAPIR.jpg" width="70%" height="70%"/>
+</div><br/>
 
 ### Installation
 Please follow these steps to run TAPIR:
@@ -99,7 +101,7 @@ pip install -r requirements.txt
 
 Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebookresearch/SlowFast)[1]. For more information, please refer to this work.
 
-### Training
+### Running the code
 
 Download the "keyframes" folder in [PSI-AVA](http://157.253.243.19/PSI-AVA/) in the repository's folder ./outputs/PSIAVA/
 

@@ -158,6 +158,14 @@ $ bash run_examples/mvit_long_term.sh
 
 ## Evaluating models
 
+| Task | mAP | config | run file | model |
+| ----- | ----- | ----- | ----- | ----- |
+| Phases | 56.55 +- 2.31 | [PHASES](configs/MVIT_PHASES.yaml) | [long_term](run_examples/mvit_long_term.sh) | [phases](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/PHASES/) |
+| Steps | 45.56 +- 0.004 | [STEPS](configs/MVIT_STEPS.yaml) | [long_term](run_examples/mvit_long_term.sh) | [steps](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/STEPS/) |
+| Instruments |  | [TOOLS](configs/MVIT_TOOLS.yaml) | [short_term](run_examples/mvit_short_term.sh) | [tools](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/INSTRUMENTS/) |
+| Actions |  | [ACTIONS](configs/MVIT_ACTIONS.yaml) | [short_term](run_examples/mvit_short_term.sh) | [actions](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/ACTIONS/) |
+
+
 Download our trained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/)/TAPIR_trained_models.
 
 Add this path in the run_examples/mvit_*.sh file corresponding to the task you want to evaluate. Enable test by setting in the config **TEST.ENABLE True**

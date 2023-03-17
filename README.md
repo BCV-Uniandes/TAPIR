@@ -21,7 +21,9 @@ Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu
 
 ## PSI-AVA
 
-![alt text](https://github.com/BCV-Uniandes/TAPIR/images/dataset.jpg)
+<div align="center">
+  <img src="images/dataset.jpg" width="100%" height="100%"/>
+</div><br/>
 
 In this [link](http://157.253.243.19/PSI-AVA/) you will find the original Radical Prostatectomy surgical videos and annotations that compose the Phases, Steps, Instruments and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions and the trained model weights on each task. The data in the link has the following organization
 

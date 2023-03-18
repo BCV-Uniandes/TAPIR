@@ -56,7 +56,7 @@ def detection_collate(batch):
     collated_extra_data = {}
     for key in extra_data[0].keys():
         data = [d[key] for d in extra_data]
-        if key == "ori_boxes":
+        if key in ["ori_boxes","boxes"]:
             # Append idx info to the bboxes before concatenating them.
             try:
                 bboxes = [

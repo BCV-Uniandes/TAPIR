@@ -305,7 +305,6 @@ class TransformerRoIHead(nn.Module):
         self.cfg = cfg
         if dropout_rate > 0.0:
             self.dropout = nn.Dropout(dropout_rate)
-            
         
         # Feature Vector dimension from faster is 1024
         dim_faster = 1024 

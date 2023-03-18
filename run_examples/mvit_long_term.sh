@@ -13,7 +13,7 @@ FRAME_DIR="outputs/PSIAVA/keyframes" # Path to the organized keyframes
 OUTPUT_DIR="outputs/log/"$TASK"/"$EXPERIMENT_NAME
 FRAME_LIST="outputs/data_annotations/"$DATA_VER"/fold"$FOLD"/frame_lists"
 ANNOT_DIR="outputs/data_annotations/"$DATA_VER"/fold"$FOLD"/annotations"
-COCO_ANN_PATH="outputs/data_annotations/"$DATA_VER"/fold"$FOLD"/coco_anns/val_coco_anns_v3_35s.json"
+COCO_ANN_PATH="outputs/data_annotations/"$DATA_VER"/fold"$FOLD"/coco_anns/val_coco_anns_DB1_v3_1s.json"
 TYPE="pytorch"
 #-------------------------
 # Run experiment
@@ -28,7 +28,6 @@ TRAIN.CHECKPOINT_FILE_PATH $CHECKPOINT \
 TRAIN.CHECKPOINT_EPOCH_RESET True \
 TRAIN.CHECKPOINT_TYPE $TYPE \
 TEST.ENABLE False \
-MVIT.DEPTH 16 \
 AVA.FRAME_DIR $FRAME_DIR \
 AVA.FRAME_LIST_DIR $FRAME_LIST \
 AVA.ANNOTATION_DIR $ANNOT_DIR \

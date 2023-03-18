@@ -476,12 +476,13 @@ class Ava(torch.utils.data.Dataset):
         # Padding and masking for a consistent dimensions in batch
         max_boxes = self.cfg.DATA.MAX_BBOXES
         bbox_mask = np.zeros(max_boxes,dtype=bool)
-        bbox_mask[:len(boxes)] = True
-        if len(boxes)<max_boxes:
-            c_boxes = np.concatenate((boxes,np.zeros((max_boxes-len(boxes),4))),axis=0)
-            c_faster_features = np.concatenate((faster_features,np.zeros((max_boxes-len(faster_features),256 if self.cfg.FASTER.DETR else 1024))),axis=0)
-            boxes = c_boxes
-            faster_features = c_faster_features
+        if self.cfg.FASTER.ENABLE:
+            bbox_mask[:len(boxes)] = True
+            if len(boxes)<max_boxes:
+                c_boxes = np.concatenate((boxes,np.zeros((max_boxes-len(boxes),4))),axis=0)
+                c_faster_features = np.concatenate((faster_features,np.zeros((max_boxes-len(faster_features),256 if self.cfg.FASTER.DETR else 1024))),axis=0)
+                boxes = c_boxes
+                faster_features = c_faster_features
         
         imgs = utils.pack_pathway_output(self.cfg, imgs)
 

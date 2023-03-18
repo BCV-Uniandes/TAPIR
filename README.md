@@ -154,9 +154,15 @@ Download the instrument features computed by deformable DETR from the folder "De
 
 ### Running the code
 
+First add this repository for $PYTHONPATH
+
+```sh
+$ export PYTHONPATH=/path/to/TAPIR/slowfast:$PYTHONPATH
+```
+
 For training TAPIR in:
 
-```
+```sh
 # the Instrument detection or Atomic Action recognition task
 $ bash run_examples/mvit_short_term.sh
 

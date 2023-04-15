@@ -30,50 +30,50 @@ In this [link](http://157.253.243.19/PSI-AVA/) you will find the original Radica
 ```tree
 PSI-AVA:
 |
-|--TAPIR_trained_models
-|        |---ACTIONS
-|        |      |---Fold1
-|        |      |     |--checkpoint_best_actions.pyth
-|        |      |---Fold2
-|        |            |--checkpoint_best_actions.pyth
-|        |---INSTRUMENTS
-|        |      ...
-|        |---PHASES
-|        |      ...
-|        |---STEPS
-|               ...
+|_TAPIR_trained_models
+|      |_ACTIONS
+|      |    |_Fold1
+|      |    |   |_checkpoint_best_actions.pyth
+|      |    |_Fold2
+|      |        |_checkpoint_best_actions.pyth
+|      |_INSTRUMENTS
+|      |    ...
+|      |_PHASES
+|      |    ...
+|      |_STEPS
+|           ...
 |
-|--def_DETR_box_ftrs
-|        |---fold1
-|        |     |---train
-|        |     |      |--box_features.pth
-|        |     |---val
-|        |            |--box_features.pth
-|        |---fold2
-|              ...
+|_def_DETR_box_ftrs
+|     |_fold1
+|     |   |_train
+|     |   |   |_box_features.pth
+|     |   |_val
+|     |       |_box_features.pth
+|     |_fold2
+|         ...
 |
-|--images_8_frames_per_second
-|         |---keyframes
-|         |        |---CASE001
-|         |        |       |--000000.jpg
-|         |        |       |--000006.jpg
-|         |        |       |--0000011.jpg
-|         |        |       ...
-|         |        |---CASE002
-|         |        |       ...
-|         |        ...
-|         |--RobotSegSantaFe_v3_dense.json 
-|         |--RobotSegSantaFe_v3_dense_fold1.json
-|         |--RobotSegSantaFe_v3_dense_fold2.json 
+|_images_8_frames_per_second
+|       |_keyframes
+|       |     |_CASE001
+|       |     |    |_000000.jpg
+|       |     |    |_000006.jpg
+|       |     |    |_0000011.jpg
+|       |     |    ...
+|       |     |_CASE002
+|       |     |    ...
+|       |     ...
+|       |_RobotSegSantaFe_v3_dense.json 
+|       |_RobotSegSantaFe_v3_dense_fold1.json
+|       |_RobotSegSantaFe_v3_dense_fold2.json 
 |
-|--keyframes
-          |---CASE001
-          |        |--00000.jpg
-          |        |--00001.jpg
-          |        |--00002.jpg
-          |        ...
-          |---CASE002
-          |        ...
+|_keyframes
+        |_CASE001
+        |     |_00000.jpg
+        |     |_00001.jpg
+        |     |_00002.jpg
+        |     ...
+        |_CASE002
+        |     ...
           ...
 ```
 
@@ -124,32 +124,32 @@ Download the instrument features computed by deformable DETR from the folder "De
  
   ```tree
   outputs
-  |---data_annotations
-  |         |---psi-ava
-  |         |        |---fold1
-  |         |        |       |---annotationas
-  |         |        |       |        ...
-  |         |        |       |---coco_anns
-  |         |        |       |        ...
-  |         |        |       |--frame_lists
-  |         |        |       |        ...
-  |         |        |       |---train
-  |         |        |       |     |--box_features.pth
-  |         |        |       |---val
-  |         |        |             |--box_features.pth
-  |         |        |---fold2
-  |         |                ...
-  |         |---psi-ava_extended
-  |                  ...
-  |---PSIAVA
-            |---keyframes 
-                       |---CASE001
-                       |         |---00000.jpg
-                       |         |---00001.jpg
-                       |         ...
-                       |---CASE002
-                                 ...
-                       ...
+  |_data_annotations
+  |      |_psi-ava
+  |      |     |_fold1
+  |      |     |    |_annotationas
+  |      |     |    |    ...
+  |      |     |    |_coco_anns
+  |      |     |    |    ...
+  |      |     |    |_frame_lists
+  |      |     |    |    ...
+  |      |     |    |_train
+  |      |     |    |    |_box_features.pth
+  |      |     |    |_val
+  |      |     |         |_box_features.pth
+  |      |     |_fold2
+  |      |          ...
+  |      |_psi-ava_extended
+  |            ...
+  |_PSIAVA
+         |_keyframes 
+                 |_CASE001
+                 |      |_00000.jpg
+                 |      |_00001.jpg
+                 |      ...
+                 |_CASE002
+                        ...
+                 ...
   ```
 
 ### Running the code

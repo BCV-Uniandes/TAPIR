@@ -8,7 +8,7 @@
 <sup>3 </sup> Seattle Children’s Hospital, Seattle, USA <br/>
 <sup>4 </sup> University of Washington, Seattle, USA <br/>
 
-- **Oral presentation and best paper nominee** at **Medical Image Computing and Computer Assisted Intervention (MICCAI) 2022**. Proceedings available at [springer](https://doi.org/10.1007/978-3-031-16449-1_42)
+- **Oral presentation and best paper nominee** at **Medical Image Computing and Computer Assisted Intervention (MICCAI) 2022**. Proceedings available at [Springer Link](https://link.springer.com/chapter/10.1007/978-3-031-16449-1_42)
 - **Preprint** available at [arXiv](https://arxiv.org/abs/2212.04582).
 
 Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and our [youtube](https://youtu.be/G4ctkKgRkaY) channel.

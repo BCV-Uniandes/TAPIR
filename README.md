@@ -1,13 +1,5 @@
 # Towards Holistic Surgical Scene Understanding
 
-We present a new experimental framework towards holistic surgical scene  understanding. First, we introduce the Phase, Step, Instrument, and Atomic Visual Action recognition (PSI-AVA) Dataset. PSI-AVA includes annotations for both long-term (Phase and Step recognition) and short-term reasoning (Instrument detection and novel Atomic Action recognition) in robot-assisted radical prostatectomy videos. Second, we present Transformers for Action, Phase, Instrument, and steps Recognition (TAPIR) as a strong baseline for surgical scene understanding. TAPIR leverages our dataset’s multi-level annotations as it benefits from the learned representation on the instrument detection task to improve its classification capacity. Our experimental results in both PSI-AVA and other publicly available databases demonstrate the adequacy of our framework to spur future research on holistic surgical scene understanding
-
-This repository provides instructions to download the PSI-AVA dataset and run the PyTorch implementation of TAPIR, both presented in the paper Towards Holistic Surgical Scene Understanding, oral presentation at [MICCAI,2022](https://conferences.miccai.org/2022/en/). 
-
-## Paper
-
-[**Towards Holistic Surgical Scene Understanding**](https://arxiv.org/abs/2212.04582) <br/>
-<br/>
 [Natalia Valderrama](https://nfvalderrama.github.io)<sup>1</sup>, [Paola Ruiz Puentes](https://paolaruizp.github.io)<sup>1*</sup>, Isabela Hernández<sup>1*</sup>, [Nicolás Ayobi](https://nayobi.github.io/)<sup>1</sup>, Mathilde Verlyck<sup>1</sup>, Jessica Santander<sup>2</sup>, Juan Caicedo<sup>2</sup>, Nicolás Fernández<sup>3,4</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
 <br/>
 <sup>*</sup>Equal contribution.<br/>
@@ -16,10 +8,18 @@ This repository provides instructions to download the PSI-AVA dataset and run th
 <sup>3 </sup> Seattle Children’s Hospital, Seattle, USA <br/>
 <sup>4 </sup> University of Washington, Seattle, USA <br/>
 
-**Preprint available at [ArXiv](https://arxiv.org/abs/2212.04582) "Towards Holistic Surgical Scene Understanding" with code 2212.04582**<br/>
-**Proceedings available at [springer](https://doi.org/10.1007/978-3-031-16449-1_42) "Towards Holistic Surgical Scene Understanding", Volume 13437 of the Lecture Notes in Computer Science series.**
+- **Oral presentation and best paper nominee** at **Medical Image Computing and Computer Assisted Intervention (MICCAI) 2022**. Proceedings available at [springer](https://doi.org/10.1007/978-3-031-16449-1_42)**
+- **Preprint** available at [arXiv](https://arxiv.org/abs/2212.04582).<br/>
 
-Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and in our [youtube](https://youtu.be/G4ctkKgRkaY) channel.
+Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and our [youtube](https://youtu.be/G4ctkKgRkaY) channel.
+
+<div align="center">
+  <img src="images/dataset.jpg"/>
+</div><br/>
+
+We present a new experimental framework towards holistic surgical scene understanding. First, we introduce the Phase, Step, Instrument, and Atomic Visual Action recognition (PSI-AVA) Dataset. PSI-AVA includes annotations for both long-term (Phase and Step recognition) and short-term reasoning (Instrument detection and novel Atomic Action recognition) in robot-assisted radical prostatectomy videos. Second, we present Transformers for Action, Phase, Instrument, and steps Recognition (TAPIR) as a strong baseline for surgical scene understanding. TAPIR leverages our dataset’s multi-level annotations as it benefits from the learned representation on the instrument detection task to improve its classification capacity. Our experimental results in both PSI-AVA and other publicly available databases demonstrate the adequacy of our framework to spur future research on holistic surgical scene understanding.
+
+This repository provides instructions to download the PSI-AVA dataset and run the PyTorch implementation of TAPIR, both presented in the paper Towards Holistic Surgical Scene Understanding, oral presentation at [MICCAI,2022](https://conferences.miccai.org/2022/en/). 
 
 ## GraSP dataset and TAPIS
 
@@ -27,11 +27,7 @@ Check out [**GraSP**](https://github.com/BCV-Uniandes/GraSP), an **extended vers
 
 ## PSI-AVA
 
-<div align="center">
-  <img src="images/dataset.jpg" width="70%" height="70%"/>
-</div><br/>
-
-In this [link](http://157.253.243.19/PSI-AVA/) you will find the original Radical Prostatectomy surgical videos and annotations that compose the Phases, Steps, Instruments and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions and the trained model weights on each task. The data in the link has the following organization
+In this [link](http://157.253.243.19/PSI-AVA/), you will find the sampled frames of the original Radical Prostatectomy surgical videos and the annotations that compose the Phases, Steps, Instruments, and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions, and the trained model weights on each task. The data in the link has the following organization.
 
 ```tree
 PSI-AVA:
@@ -83,12 +79,18 @@ PSI-AVA:
           ...
 ```
 
-You will find the PSIAVA's benchmark data partition and annotations in outputs/data_annotations.
+We recommend downloading the data recursively with the following command:
+
+```sh
+$ wget -r http://157.253.243.19/PSI-AVA
+```
+
+You will find PSIAVA's data partition and annotations in the [outputs/data_annotations.](https://github.com/BCV-Uniandes/TAPIR/tree/main/outputs/data_annotations) directory.
 
 ## TAPIR
 
 <div align="center">
-  <img src="images/TAPIR.jpg" width="70%" height="70%"/>
+  <img src="images/TAPIR.jpg"/>
 </div><br/>
 
 ### Installation
@@ -126,7 +128,7 @@ Download the instrument features computed by deformable DETR from the folder "De
 
  ```PSI-AVA/def_DETR_box_ftrs/fold2/* ===> ./outputs/data_annotations/psi-ava/fold2/*```
  
- In the end, the ```outputs``` directory must have the following structure
+ In the end, the ```outputs``` directory must have the following structure.
  
   ```tree
   outputs
@@ -160,7 +162,7 @@ Download the instrument features computed by deformable DETR from the folder "De
 
 ### Running the code
 
-First add this repository for $PYTHONPATH
+First, add this repository for $PYTHONPATH
 
 ```sh
 $ export PYTHONPATH=/path/to/TAPIR/slowfast:$PYTHONPATH
@@ -191,7 +193,7 @@ Add this path in the run_examples/mvit_*.sh file corresponding to the task you w
 
 ## Citing TAPIR
 
-If you use PSI-AVA or TAPIR (or their extended versions, GraSP and TAPIS) in your research please include the following BibTex citation in your papers.
+If you use PSI-AVA or TAPIR (or their extended versions, GraSP and TAPIS) in your research, please include the following BibTex citations in your papers.
 ```BibTeX
 @misc{ayobi2024pixelwise,
       title={Pixel-Wise Recognition for Holistic Surgical Scene Understanding}, 

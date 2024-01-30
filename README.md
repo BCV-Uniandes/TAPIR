@@ -2,12 +2,14 @@
 
 We present a new experimental framework towards holistic surgical scene  understanding. First, we introduce the Phase, Step, Instrument, and Atomic Visual Action recognition (PSI-AVA) Dataset. PSI-AVA includes annotations for both long-term (Phase and Step recognition) and short-term reasoning (Instrument detection and novel Atomic Action recognition) in robot-assisted radical prostatectomy videos. Second, we present Transformers for Action, Phase, Instrument, and steps Recognition (TAPIR) as a strong baseline for surgical scene understanding. TAPIR leverages our dataset’s multi-level annotations as it benefits from the learned representation on the instrument detection task to improve its classification capacity. Our experimental results in both PSI-AVA and other publicly available databases demonstrate the adequacy of our framework to spur future research on holistic surgical scene understanding
 
-This repository provides instructions to download the PSI-AVA dataset and run the PyTorch implementation of TAPIR, both presented in the paper Towards Holistic Surgical Scene Understanding. Oral presentation at [MICCAI,2022](https://conferences.miccai.org/2022/en/). 
+This repository provides instructions to download the PSI-AVA dataset and run the PyTorch implementation of TAPIR, both presented in the paper Towards Holistic Surgical Scene Understanding, oral presentation at [MICCAI,2022](https://conferences.miccai.org/2022/en/). 
 
 ## Paper
 
-[Towards Holistic Surgical Scene Understanding](https://arxiv.org/abs/2212.04582) <br/>
+[**Towards Holistic Surgical Scene Understanding**](https://arxiv.org/abs/2212.04582) <br/>
+<br/>
 [Natalia Valderrama](https://nfvalderrama.github.io)<sup>1</sup>, [Paola Ruiz Puentes](https://paolaruizp.github.io)<sup>1*</sup>, Isabela Hernández<sup>1*</sup>, [Nicolás Ayobi](https://nayobi.github.io/)<sup>1</sup>, Mathilde Verlyck<sup>1</sup>, Jessica Santander<sup>2</sup>, Juan Caicedo<sup>2</sup>, Nicolás Fernández<sup>3,4</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
+<br/>
 <sup>*</sup>Equal contribution.<br/>
 <sup>1 </sup> Center  for  Research  and  Formation  in  Artificial  Intelligence .([CINFONIA](https://cinfonia.uniandes.edu.co/)),  Universidad  de  los  Andes,  Bogotá 111711, Colombia. <br/>
 <sup>2 </sup> Fundación Santafé de Bogotá, Bogotá, Colombia<br/>
@@ -18,6 +20,10 @@ This repository provides instructions to download the PSI-AVA dataset and run th
 **Proceedings available at [springer](https://doi.org/10.1007/978-3-031-16449-1_42) "Towards Holistic Surgical Scene Understanding", Volume 13437 of the Lecture Notes in Computer Science series.**
 
 Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and in our [youtube](https://youtu.be/G4ctkKgRkaY) channel.
+
+## GraSP dataset and TAPIS
+
+Check out [**GraSP**](https://github.com/BCV-Uniandes/GraSP), an **extended version of our PSI-AVA dataset** that provides **surgical instrument segmentation** annotations and more data. Also check [**TAPIS**](https://github.com/BCV-Uniandes/GraSP/tree/main/TAPIS), the improved version of our method. GraSP and TAPIS have been published in this [arXiv](https://arxiv.org/abs/2401.11174).
 
 ## PSI-AVA
 
@@ -185,14 +191,26 @@ Add this path in the run_examples/mvit_*.sh file corresponding to the task you w
 
 ## Citing TAPIR
 
-If you use PSI-AVA or TAPIR in your research please include the following BibTex citation in your papers.
+If you use PSI-AVA or TAPIR (or their extended versions, GraSP and TAPIS) in your research please include the following BibTex citation in your papers.
 ```BibTeX
-@misc{valderrama2020tapir,
-  author =       {Natalia Valderrama and Paola Ruiz Puentes and Isabela Hern{\'a}ndez and Nicol{\'a}s Ayobi Mathilde Verlyk and Jessica Santander and Juan Caicedo and Nicol{\'a}s Fern{\'a}ndez and Pablo Arbel{\'a}es},
-  title =        {Towards Holistic Surgical Scene Understanding},
-  howpublished = {\url{https://github.com/BCV-Uniandes/TAPIR}},
-  journal=       {MICCAI},
-  year =         {2022}
+@misc{ayobi2024pixelwise,
+      title={Pixel-Wise Recognition for Holistic Surgical Scene Understanding}, 
+      author={Nicol{\'a}s Ayobi and Santiago Rodr{\'i}guez and Alejandra P{\'e}rez and Isabela Hern{\'a}ndez and Nicol{\'a}s Aparicio and Eug{\'e}nie Dessevres and Sebasti{\'a}n Peña and Jessica Santander and Juan Ignacio Caicedo and Nicol{\'a}s Fern{\'a}ndez and Pablo Arbel{\'a}ez},
+      year={2024},
+      eprint={2401.11174},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+@@InProceedings{valderrama2020tapir,
+      author={Natalia Valderrama and Paola Ruiz and Isabela Hern{\'a}ndez and Nicol{\'a}s Ayobi and Mathilde Verlyck and Jessica Santander and Juan Caicedo and Nicol{\'a}s Fern{\'a}ndez and Pablo Arbel{\'a}ez},
+      title={Towards Holistic Surgical Scene Understanding},
+      booktitle={Medical Image Computing and Computer Assisted Intervention -- MICCAI 2022},
+      year={2022},
+      publisher={Springer Nature Switzerland},
+      address={Cham},
+      pages={442--452},
+      isbn={978-3-031-16449-1}
 }
 ```
 

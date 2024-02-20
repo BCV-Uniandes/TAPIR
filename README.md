@@ -27,7 +27,7 @@ Check out [**GraSP**](https://github.com/BCV-Uniandes/GraSP), an **extended vers
 
 ## PSI-AVA
 
-In this [link](http://157.253.243.19/PSI-AVA/PSI-AVA), you will find the sampled frames of the original Radical Prostatectomy surgical videos and the annotations that compose the Phases, Steps, Instruments, and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions, and the trained model weights on each task. The data in the link has the following organization.
+In this [link](http://157.253.243.19/PSI-AVA), you will find the sampled frames of the original Radical Prostatectomy surgical videos and the annotations that compose the Phases, Steps, Instruments, and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions, and the trained model weights on each task. The data in the link has the following organization.
 
 ```tree
 PSI-AVA:
@@ -82,7 +82,7 @@ PSI-AVA:
 We recommend downloading the data recursively with the following command:
 
 ```sh
-$ wget -r http://157.253.243.19/PSI-AVA/PSI-AVA
+$ wget -r http://157.253.243.19/PSI-AVA
 ```
 
 You will find PSIAVA's data partition and annotations in the [outputs/data_annotations.](https://github.com/BCV-Uniandes/TAPIR/tree/main/outputs/data_annotations) directory.
@@ -118,11 +118,11 @@ Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebo
 
 ### Preparing data
 
-Download the "keyframes" folder in [PSI-AVA](http://157.253.243.19/PSI-AVA/PSI-AVA) in the repository's folder ./outputs/PSIAVA/
+Download the "keyframes" folder in [PSI-AVA](http://157.253.243.19/PSI-AVA) in the repository's folder ./outputs/PSIAVA/
 
  ```PSI-AVA/keyframes/* ===> ./outputs/PSIAVA/keyframes/```
 
-Download the instrument features computed by deformable DETR from the folder "Def_DETR_Box_ftrs" in [PSI-AVA](http://157.253.243.19/PSI-AVA/PSI-AVA) as follows:
+Download the instrument features computed by deformable DETR from the folder "Def_DETR_Box_ftrs" in [PSI-AVA](http://157.253.243.19/PSI-AVA) as follows:
  
  ```PSI-AVA/def_DETR_box_ftrs/fold1/* ===> ./outputs/data_annotations/psi-ava/fold1/*```
 
@@ -182,25 +182,31 @@ $ bash run_examples/mvit_long_term.sh
 
 | Task | mAP | config | run file | model |
 | ----- | ----- | ----- | ----- | ----- |
-| Phases | 56.55 $\pm$ 2.31 | [PHASES](./configs/MVIT_PHASES.yaml) | [long_term](./run_examples/mvit_long_term.sh) | [phases](http://157.253.243.19/PSI-AVA/PSI-AVA/TAPIR_trained_models/PHASES/) |
-| Steps | 45.56 $\pm$ 0.004 | [STEPS](./configs/MVIT_STEPS.yaml) | [long_term](./run_examples/mvit_long_term.sh) | [steps](http://157.253.243.19/PSI-AVA/PSI-AVA/TAPIR_trained_models/STEPS/) |
-| Instruments | 80.85 $\pm$ 1.54 | [TOOLS](./configs/MVIT_TOOLS.yaml) | [short_term](./run_examples/mvit_short_term.sh) | [tools](http://157.253.243.19/PSI-AVA/PSI-AVA/TAPIR_trained_models/INSTRUMENTS/) |
-| Actions | 28.68 $\pm$ 1.33 | [ACTIONS](./configs/MVIT_ACTIONS.yaml) | [short_term](./run_examples/mvit_short_term.sh) | [actions](http://157.253.243.19/PSI-AVA/PSI-AVA/TAPIR_trained_models/ACTIONS/) |
+| Phases | 56.55 $\pm$ 2.31 | [PHASES](./configs/MVIT_PHASES.yaml) | [long_term](./run_examples/mvit_long_term.sh) | [phases](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/PHASES/) |
+| Steps | 45.56 $\pm$ 0.004 | [STEPS](./configs/MVIT_STEPS.yaml) | [long_term](./run_examples/mvit_long_term.sh) | [steps](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/STEPS/) |
+| Instruments | 80.85 $\pm$ 1.54 | [TOOLS](./configs/MVIT_TOOLS.yaml) | [short_term](./run_examples/mvit_short_term.sh) | [tools](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/INSTRUMENTS/) |
+| Actions | 28.68 $\pm$ 1.33 | [ACTIONS](./configs/MVIT_ACTIONS.yaml) | [short_term](./run_examples/mvit_short_term.sh) | [actions](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/ACTIONS/) |
 
-Download our pretrained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/PSI-AVA/TAPIR_trained_models).
+Download our pretrained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/TAPIR_trained_models).
 
 Add this path in the run_examples/mvit_*.sh file corresponding to the task you want to evaluate. Enable test by setting in the config **TEST.ENABLE True**
+
+## Contact
+
+If you have any doubts, questions, issues, corrections, or comments, please email n.ayobi@uniandes.edu.co.
 
 ## Citing TAPIR
 
 If you use PSI-AVA or TAPIR (or their extended versions, GraSP and TAPIS) in your research, please include the following BibTex citations in your papers.
+
 ```BibTeX
-@misc{ayobi2024pixelwise,
+@article{ayobi2024pixelwise,
       title={Pixel-Wise Recognition for Holistic Surgical Scene Understanding}, 
-      author={Nicol{\'a}s Ayobi and Santiago Rodr{\'i}guez and Alejandra P{\'e}rez and Isabela Hern{\'a}ndez and Nicol{\'a}s Aparicio and Eug{\'e}nie Dessevres and Sebasti{\'a}n Peña and Jessica Santander and Juan Ignacio Caicedo and Nicol{\'a}s Fern{\'a}ndez and Pablo Arbel{\'a}ez},
+      author={Nicolás Ayobi and Santiago Rodríguez and Alejandra Pérez and Isabela Hernández and Nicolás Aparicio and Eugénie Dessevres and Sebastián Peña and Jessica Santander and Juan Ignacio Caicedo and Nicolás Fernández and Pablo Arbeláez},
       year={2024},
+      url={https://arxiv.org/abs/2401.11174},
       eprint={2401.11174},
-      archivePrefix={arXiv},
+      journal={arXiv},
       primaryClass={cs.CV}
 }
 

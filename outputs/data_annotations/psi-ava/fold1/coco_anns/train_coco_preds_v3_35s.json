@@ -136,164 +136,196 @@
     "phase_categories": [
         {
             "id": 0,
-            "name": "Tiempo_muerto",
+            "name": "Idle",
+            "description": "Idle",
             "supercategory": "phase"
         },
         {
             "id": 1,
-            "name": "LPAI",
+            "name": "LPIL",
+            "description": "Left pelvic isolated lymphadenectomy",
             "supercategory": "phase"
         },
         {
             "id": 2,
-            "name": "LPAD",
+            "name": "RPIL",
+            "description": "Right pelvic isolated lymphadenectomy",
             "supercategory": "phase"
         },
         {
             "id": 3,
-            "name": "Espacio_de_Retzius ",
+            "name": "Retzius_Space",
+            "description": "Developing the Space of Retzius",
             "supercategory": "phase"
         },
         {
             "id": 4,
-            "name": "Complejo_venoso_dorsal",
+            "name": "Dorsal_Venous_Complex",
+            "description": "Ligation of the deep dorsal venous complex",
             "supercategory": "phase"
         },
         {
             "id": 5,
-            "name": "Id_Cuello_Vesical",
+            "name": "Id_Bladder_Neck",
+            "description": "Bladder neck identification and transection",
             "supercategory": "phase"
         },
         {
             "id": 6,
-            "name": "Ves\u00edculas_Seminales",
+            "name": "Seminal_Vesicles",
+            "description": "Seminal vesicle dissection",
             "supercategory": "phase"
         },
         {
             "id": 7,
-            "name": "Fascia_Denonvilliers",
+            "name": "Denonvilliers_Fascia",
+            "description": "Development of the plane between the prostate and rectum",
             "supercategory": "phase"
         },
         {
             "id": 8,
-            "name": "Control_Pediculos",
+            "name": "Pedicle_Control",
+            "description": "Prostatic pedicle control",
             "supercategory": "phase"
         },
         {
             "id": 9,
-            "name": "Separacion_Prostata_Uretra ",
+            "name": "Severing_Prostate_Urethra",
+            "description": "Severing of the prostate from the urethra",
             "supercategory": "phase"
         },
         {
             "id": 10,
-            "name": "Rec_Cuello_Vesical",
+            "name": "Bladder_Neck_Rec",
+            "description": "Bladder neck reconstruction",
             "supercategory": "phase"
         }
     ],
     "step_categories": [
         {
             "id": 0,
-            "name": "Tiempo_muerto",
+            "name": "Idle",
+            "description": "Idle",
             "supercategory": "step"
         },
         {
             "id": 1,
-            "name": "Id_Vena_Arteria_Iliaca",
+            "name": "Id_Illiac_Vein_Artery",
+            "description": "Identification and dissection of the Iliac vein and artery",
             "supercategory": "step"
         },
         {
             "id": 2,
-            "name": "Diseccion_Ganglios_Iliacos",
+            "name": "Dissection_Illiac_Lymph_Nodes",
+            "description": "Cutting and dissection of the external iliac veins lymph node",
             "supercategory": "step"
         },
         {
             "id": 3,
-            "name": "Diseccion_Ganglios_Obturadores",
+            "name": "Dissection_Obturator_Lymph_Nodes",
+            "description": "Obturator nerve and vessel path identification, dissection and cutting of the obturator lymph nodes",
             "supercategory": "step"
         },
         {
             "id": 4,
-            "name": "Empacar_Ganglios",
+            "name": "Pack_Lymph_Nodes",
+            "description": "Insert the lymph nodes in retrieval bags",
             "supercategory": "step"
         },
         {
             "id": 5,
-            "name": "Diseccion_Prevesical",
+            "name": "Prevessical_Dissection",
+            "description": "Prevessical dissection",
             "supercategory": "step"
         },
         {
             "id": 6,
-            "name": "Pasar_Aguja_Cvdp",
+            "name": "Ligation_Dorsal_Venous_Complex",
+            "description": "Ligation of the dorsal venous complex",
             "supercategory": "step"
         },
         {
             "id": 7,
-            "name": "Diseccion_Prostata",
+            "name": "Prostate_Dissection",
+            "description": "Prostate dissection until the levator ani",
             "supercategory": "step"
         },
         {
             "id": 8,
-            "name": "Diseccion_Seminal",
+            "name": "Seminal_Vessicle_Dissection",
+            "description": "Seminal vesicle dissection",
             "supercategory": "step"
         },
         {
             "id": 9,
-            "name": "Diseccion_Denon",
+            "name": "Denon_Dissection",
+            "description": "Dissection of Denonviliers fascia",
             "supercategory": "step"
         },
         {
             "id": 10,
-            "name": "Corte_Prostata",
+            "name": "Cut_Prostate",
+            "description": "Cut the tissue between the prostate and the urethra",
             "supercategory": "step"
         },
         {
             "id": 11,
-            "name": "Sujetar_Prostata",
+            "name": "Hold_Prostate",
+            "description": "Hold prostate",
             "supercategory": "step"
         },
         {
             "id": 12,
-            "name": "Empacar_Prostata",
+            "name": "Pack_Prostate",
+            "description": "Insert prostate in retrieval bag",
             "supercategory": "step"
         },
         {
             "id": 13,
-            "name": "Pasar_Aguja_Uretra",
+            "name": "Pass_Suture_Urethra",
+            "description": "Pass suture to the urethra",
             "supercategory": "step"
         },
         {
             "id": 14,
-            "name": "Pasar_Aguja_Cuello",
+            "name": "Pass_Suture_Neck",
+            "description": "Pass suture to the bladder neck",
             "supercategory": "step"
         },
         {
             "id": 15,
-            "name": "Halar_sutura",
+            "name": "Pull_Suture",
+            "description": "Pull suture",
             "supercategory": "step"
         },
         {
             "id": 16,
-            "name": "Anudar",
+            "name": "Tie_Suture",
+            "description": "Tie suture",
             "supercategory": "step"
         },
         {
             "id": 17,
-            "name": "Succion",
+            "name": "Suction",
+            "description": "Suction",
             "supercategory": "step"
         },
         {
             "id": 18,
-            "name": "Corte",
+            "name": "Cut",
+            "description": "Cut suture or tissue",
             "supercategory": "step"
         },
         {
             "id": 19,
-            "name": "Corte_Vejiga",
+            "name": "Cut_Bladder",
+            "description": "Cut between the prostate and bladder neck",
             "supercategory": "step"
         },
         {
             "id": 20,
-            "name": "Clip_Pediculos",
+            "name": "Clip_Pedicles",
+            "description": "Vascular pedicle control",
             "supercategory": "step"
         }
     ],

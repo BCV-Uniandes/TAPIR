@@ -112,11 +112,11 @@ Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebo
 
 ### Preparing data
 
-First, locate the "keyframes" folder extracted from [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz) in the repository's folder ./outputs/PSIAVA/
+First, extract the "keyframes" folder extracted from [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz). Then locate the "keyframes" folder in this repository's ./outputs/PSIAVA/ directory.
 
  ```PSI-AVA/keyframes/* ===> ./outputs/PSIAVA/keyframes/```
 
-Then, locate the instrument features computed by deformable DETR from the "Def_DETR_Box_ftrs" folder extracted from the [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz) as follows:
+Then, extract the instrument features computed by deformable DETR from the "Def_DETR_Box_ftrs" folder extracted from the [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz). Locate these files in this repository as follows:
  
  ```PSI-AVA/def_DETR_box_ftrs/fold1/* ===> ./outputs/data_annotations/psi-ava/fold1/*```
 

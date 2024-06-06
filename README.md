@@ -1,18 +1,19 @@
 # Towards Holistic Surgical Scene Understanding
 
-[Natalia Valderrama](https://nfvalderrama.github.io)<sup>1</sup>, [Paola Ruiz Puentes](https://paolaruizp.github.io)<sup>1*</sup>, Isabela Hernández<sup>1*</sup>, [Nicolás Ayobi](https://nayobi.github.io/)<sup>1</sup>, Mathilde Verlyck<sup>1</sup>, Jessica Santander<sup>2</sup>, Juan Caicedo<sup>2</sup>, Nicolás Fernández<sup>3,4</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
+[Natalia Valderrama](https://nfvalderrama.github.io)<sup>1,2</sup>, [Paola Ruiz Puentes](https://paolaruizp.github.io)<sup>1,2*</sup>, Isabela Hernández<sup>1,2*</sup>, [Nicolás Ayobi](https://nayobi.github.io/)<sup>1,2</sup>, Mathilde Verlyck<sup>1,2</sup>, Jessica Santander<sup>3</sup>, Juan Caicedo<sup>3</sup>, Nicolás Fernández<sup>4,5</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1,2</sup> <br/>
 <br/>
-<sup>*</sup>Equal contribution.<br/>
-<sup>1 </sup> Center  for  Research  and  Formation  in  Artificial  Intelligence .([CINFONIA](https://cinfonia.uniandes.edu.co/)),  Universidad  de  los  Andes,  Bogotá 111711, Colombia. <br/>
-<sup>2 </sup> Fundación Santafé de Bogotá, Bogotá, Colombia<br/>
-<sup>3 </sup> Seattle Children’s Hospital, Seattle, USA <br/>
-<sup>4 </sup> University of Washington, Seattle, USA <br/>
+<sup>*</sup> Equal contribution.<br/>
+<sup>1</sup> Center  for  Research  and  Formation  in  Artificial  Intelligence ([CinfonIA](https://cinfonia.uniandes.edu.co/)). <br/> <sup>2</sup> Universidad  de  los  Andes, Bogota, Colombia. <br/>
+<sup>3</sup> Fundación Santafé de Bogotá, Bogotá, Colombia<br/>
+<sup>4</sup> Seattle Children’s Hospital, Seattle, USA <br/>
+<sup>5</sup> University of Washington, Seattle, USA <br/>
 
 - **Oral presentation and best paper nominee** at **Medical Image Computing and Computer Assisted Intervention (MICCAI) 2022**. Proceedings available at [Springer Link](https://link.springer.com/chapter/10.1007/978-3-031-16449-1_42)
 - **Preprint** available at [arXiv](https://arxiv.org/abs/2212.04582).
 
 Visit the project in our [website](https://biomedicalcomputervision.uniandes.edu.co/publications/towards-holistic-surgical-scene-understanding/) and our [youtube](https://youtu.be/G4ctkKgRkaY) channel.
 
+## Abstract
 <div align="center">
   <img src="images/dataset.jpg"/>
 </div><br/>
@@ -63,20 +64,6 @@ PSI-AVA:
 |     |_fold2
 |         ...
 |
-|_images_8_frames_per_second
-|       |_keyframes
-|       |     |_CASE001
-|       |     |    |_000000.jpg
-|       |     |    |_000006.jpg
-|       |     |    |_0000011.jpg
-|       |     |    ...
-|       |     |_CASE002
-|       |     |    ...
-|       |     ...
-|       |_RobotSegSantaFe_v3_dense.json 
-|       |_RobotSegSantaFe_v3_dense_fold1.json
-|       |_RobotSegSantaFe_v3_dense_fold2.json 
-|
 |_keyframes
         |_CASE001
         |     |_00000.jpg
@@ -89,6 +76,9 @@ PSI-AVA:
 ```
 
 You will find PSIAVA's data partition and annotations in the [outputs/data_annotations.](https://github.com/BCV-Uniandes/TAPIR/tree/main/outputs/data_annotations) directory.
+
+For **further details on frame preprocessing**, please read the Supplementary Material of our extended article in [arXiv](https://arxiv.org/abs/2401.11174). 
+Similarly, if you require **frames extracted at larger frame rates**, the **original surgery videos**, or the **raw frames**, please refer to the [GraSP Repo](https://github.com/BCV-Uniandes/GraSP).
 
 ## TAPIR
 
@@ -121,11 +111,11 @@ Our code builds upon [Multi Scale Vision Transformers](https://github.com/facebo
 
 ### Preparing data
 
-Download the "keyframes" folder in [PSI-AVA](http://157.253.243.19/PSI-AVA) in the repository's folder ./outputs/PSIAVA/
+First, locate the "keyframes" folder extracted from [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz) in the repository's folder ./outputs/PSIAVA/
 
  ```PSI-AVA/keyframes/* ===> ./outputs/PSIAVA/keyframes/```
 
-Download the instrument features computed by deformable DETR from the folder "Def_DETR_Box_ftrs" in [PSI-AVA](http://157.253.243.19/PSI-AVA) as follows:
+Then, locate the instrument features computed by deformable DETR from the "Def_DETR_Box_ftrs" folder extracted from the [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz) as follows:
  
  ```PSI-AVA/def_DETR_box_ftrs/fold1/* ===> ./outputs/data_annotations/psi-ava/fold1/*```
 
@@ -183,14 +173,14 @@ $ bash run_examples/mvit_long_term.sh
 
 ### Evaluating models
 
-| Task | mAP | config | run file | model |
-| ----- | ----- | ----- | ----- | ----- |
-| Phases | 56.55 $\pm$ 2.31 | [PHASES](./configs/MVIT_PHASES.yaml) | [long_term](./run_examples/mvit_long_term.sh) | [phases](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/PHASES/) |
-| Steps | 45.56 $\pm$ 0.004 | [STEPS](./configs/MVIT_STEPS.yaml) | [long_term](./run_examples/mvit_long_term.sh) | [steps](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/STEPS/) |
-| Instruments | 80.85 $\pm$ 1.54 | [TOOLS](./configs/MVIT_TOOLS.yaml) | [short_term](./run_examples/mvit_short_term.sh) | [tools](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/INSTRUMENTS/) |
-| Actions | 28.68 $\pm$ 1.33 | [ACTIONS](./configs/MVIT_ACTIONS.yaml) | [short_term](./run_examples/mvit_short_term.sh) | [actions](http://157.253.243.19/PSI-AVA/TAPIR_trained_models/ACTIONS/) |
+| Task | mAP | config | run file |
+| ----- | ----- | ----- | ----- |
+| Phases | 56.55 $\pm$ 2.31 | [PHASES](./tree/main/configs/MVIT_PHASES.yaml) | [long_term](./tree/main/run_examples/mvit_long_term.sh) |
+| Steps | 45.56 $\pm$ 0.004 | [STEPS](./tree/main/configs/MVIT_STEPS.yaml) | [long_term](./tree/main/run_examples/mvit_long_term.sh) |
+| Instruments | 80.85 $\pm$ 1.54 | [TOOLS](./tree/main/configs/MVIT_TOOLS.yaml) | [short_term](./tree/main/run_examples/mvit_short_term.sh) |
+| Actions | 28.68 $\pm$ 1.33 | [ACTIONS](./tree/main/configs/MVIT_ACTIONS.yaml) | [short_term](./tree/main/run_examples/mvit_short_term.sh) |
 
-Download our pretrained models in [PSI-AVA](http://157.253.243.19/PSI-AVA/TAPIR_trained_models).
+Our pretrained models are stored in [PSI-AVA data link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz).
 
 Add this path in the run_examples/mvit_*.sh file corresponding to the task you want to evaluate. Enable the test by setting it in the config **TEST.ENABLE True**
 

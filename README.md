@@ -154,6 +154,14 @@ Then, extract the instrument features computed by deformable DETR from the "Def_
                  ...
   ```
 
+### Deformable-DETR weights
+
+We provide our pretrained Deformable-DETR weights in this [link](http://157.253.243.19/PSI-AVA/deformable-detr.tar.gz).
+
+### Alternative Download Methods
+
+If you cannot download our data from our servers, you can also download the PSI-AVA compressed archive in this [Google Drive Link](https://drive.google.com/file/d/1NVzhRnqy4A9W1Hj17r-v8cO_VnfKeVf_/view?usp=sharing). Similarly, you can download the compressed Deformable-DETR weights from this [link](https://drive.google.com/file/d/1waImxJhYWPzD3oG2nM-CoJKS6kom0j04/view?usp=sharing).
+
 ### Running the code
 
 First, add this repository in the $PYTHONPATH

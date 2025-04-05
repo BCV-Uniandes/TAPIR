@@ -29,7 +29,7 @@ Check out [**GraSP**](https://github.com/BCV-Uniandes/GraSP), an **extended vers
 
 ## PSI-AVA
 
-In this [link](http://157.253.243.19/PSI-AVA/PSI-AVA.tar.gz), you will find the sampled frames of the original Radical Prostatectomy surgical videos and the annotations that compose the Phases, Steps, Instruments, and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions, and the trained model weights on each task.
+In this [link](https://drive.google.com/drive/folders/1dSVOuSbfudRgod8cLlONm2VOv35HEIBj?usp=sharing), you will find the sampled frames of the original Radical Prostatectomy surgical videos and the annotations that compose the Phases, Steps, Instruments, and Atomic Visual Actions recognition dataset. You will also find the preprocessed data we used for training TAPIR, the instrument detector predictions, and the trained model weights on each task.
 
 We recommend downloading the compressed data archive and extract all files with the following commands:
 
